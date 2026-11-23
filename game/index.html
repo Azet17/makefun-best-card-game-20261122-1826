@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:,">
+<title>Lantern Duel — a card game</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+  <header id="topbar">
+    <div class="brand">🏮 LANTERN DUEL</div>
+    <div id="turn-banner">Your turn</div>
+    <div id="round-label">Round 1</div>
+  </header>
+
+  <section id="opponent-area" class="side-area">
+    <div class="portrait" id="opp-portrait">M</div>
+    <div class="side-info">
+      <div class="side-name">Marlow, the Tidecaller</div>
+      <div class="lifebar"><div class="lifefill" id="opp-life-fill"></div><span class="lifetext" id="opp-life-text">30 / 30</span></div>
+      <div class="side-stats"><span id="opp-shield">🛡 0</span><span id="opp-energy">✦ 3</span><span id="opp-deck">Deck 25</span><span id="opp-hand-count">Hand 5</span></div>
+    </div>
+    <div id="opp-hand" class="mini-hand"></div>
+  </section>
+
+  <section id="center-area">
+    <div id="play-stage"><div id="stage-hint">Play a card, or end your turn.</div></div>
+    <div id="log"></div>
+    <button id="end-turn" type="button">End Turn</button>
+  </section>
+
+  <section id="player-area" class="side-area">
+    <div class="portrait" id="you-portrait">Y</div>
+    <div class="side-info">
+      <div class="side-name">You, Keeper of the Last Lantern</div>
+      <div class="lifebar"><div class="lifefill" id="you-life-fill"></div><span class="lifetext" id="you-life-text">30 / 30</span></div>
+      <div class="side-stats"><span id="you-shield">🛡 0</span><span id="you-energy">✦ 3</span><span id="you-deck">Deck 25</span><span id="you-discard">Discard 0</span></div>
+    </div>
+  </section>
+  <div id="hand-row"></div>
+
+  <div id="title-screen" class="overlay">
+    <div class="panel">
+      <div class="game-title">LANTERN DUEL</div>
+      <div class="game-sub">Two keepers. Four flames. One bridge at dusk.</div>
+      <div class="howto">
+        <p><b>Goal:</b> bring Marlow's lantern light to 0 before yours fades.</p>
+        <p><b>Play:</b> click a card to play it. Each card costs embers ✦; you refill every turn.</p>
+        <p><b>Resonance:</b> play two cards of the same flame in one turn and the second burns +2 stronger.</p>
+        <p><b>Shield 🛡</b> soaks damage, then halves when your next turn begins.</p>
+      </div>
+      <div class="legend" id="suit-legend"></div>
+      <button id="start-btn" type="button">Begin the Duel</button>
+    </div>
+  </div>
+
+  <div id="end-screen" class="overlay hidden">
+    <div class="panel">
+      <div id="end-title" class="game-title">VICTORY</div>
+      <div id="end-sub" class="game-sub"></div>
+      <div id="end-stats" class="howto"></div>
+      <button id="again-btn" type="button">Play Again</button>
+    </div>
+  </div>
+</div>
+<script src="cards.js"></script>
+<script src="ai.js"></script>
+<script src="audio.js"></script>
+<script src="render.js"></script>
+<script src="game.js"></script>
+</body>
+</html>
